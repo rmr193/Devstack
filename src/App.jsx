@@ -34,24 +34,24 @@ function App() {
       <main className="flex-grow">
         <Hero />
         
-        {/* Placeholder / Loading preview for Phase 4 */}
+        {/* Technologies Section */}
         <section id="technologies" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Explore Technologies
+            </h2>
+            <p className="text-slate-600 text-sm mt-1">
+              Select tools and frameworks to assemble your custom stack
+            </p>
+          </div>
+
           {loading ? (
             <LoadingSpinner />
           ) : error ? (
             <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium text-center">
-              ⚠️ {error}
+              Failed to load technologies. Please refresh the page.
             </div>
-          ) : (
-            <div className="bg-white rounded-2xl p-6 border border-slate-200/80 text-center shadow-xs">
-              <h2 className="text-xl font-bold text-slate-800 mb-2">
-                Loaded {technologies.length} Technologies
-              </h2>
-              <p className="text-slate-500 text-sm">
-                Ready for Phase 5: Building the 3-column Technology Cards Grid & Category Chips!
-              </p>
-            </div>
-          )}
+          ) : null}
         </section>
       </main>
     </div>

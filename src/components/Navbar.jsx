@@ -30,17 +30,14 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Brand Logo & Name (Desktop: Left, Mobile: Center) */}
-          <div className="flex items-center gap-3 md:justify-start justify-center">
-            <a href="#" className="flex items-center gap-2.5 group">
+          {/* Brand Logo (Desktop: Left, Mobile: Center) */}
+          <div className="flex items-center md:justify-start justify-center">
+            <a href="#" className="flex items-center group">
               <img
                 src={logoText}
                 alt="Dev Stack"
-                className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-8 md:h-9 w-auto object-contain transition-transform group-hover:scale-105"
               />
-              <span className="text-xl font-bold tracking-tight text-slate-900 hidden sm:inline-block">
-                Dev<span className="text-brand-gradient">Stack</span>
-              </span>
             </a>
           </div>
 
