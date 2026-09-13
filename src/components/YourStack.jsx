@@ -34,7 +34,7 @@ export default function YourStack({ selectedStack, onRemove, onRemoveAll }) {
 
                 <button
                   onClick={() => onRemove(tech.id)}
-                  className="p-1 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded cursor-pointer"
+                  className="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -44,7 +44,7 @@ export default function YourStack({ selectedStack, onRemove, onRemoveAll }) {
 
           <button
             onClick={onRemoveAll}
-            className="w-full mt-4 py-2.5 rounded-xl border border-red-200 text-red-500 font-semibold text-sm hover:bg-red-50 cursor-pointer"
+            className="btn btn-sm btn-outline border-red-200 text-red-500 hover:bg-red-50 hover:border-red-300 hover:text-red-600 font-semibold w-full mt-4 rounded-xl cursor-pointer"
           >
             Remove All
           </button>

@@ -1,7 +1,16 @@
 import { Star } from 'lucide-react'
 
+const badgeColors = {
+  Fast: 'badge-warning',
+  Versatile: 'badge-success',
+  Standard: 'badge-success',
+  Cache: 'badge-error',
+  Ubiquitous: 'badge-warning',
+}
+
 export default function TechCard({ tech, isAdded, onAdd }) {
   const { name, icon, description, category, difficulty, rating, badge } = tech
+  const badgeColor = badgeColors[badge] || 'badge-info'
 
   return (
     <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs flex flex-col justify-between">
@@ -11,7 +20,7 @@ export default function TechCard({ tech, isAdded, onAdd }) {
             <img src={icon} alt={name} className="w-7 h-7 object-contain" />
           </div>
           {badge && (
-            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200">
+            <span className={`badge badge-sm badge-soft ${badgeColor} text-xs font-medium`}>
               {badge}
             </span>
           )}
@@ -21,7 +30,7 @@ export default function TechCard({ tech, isAdded, onAdd }) {
         <p className="text-xs text-slate-500 mt-1 line-clamp-2">{description}</p>
 
         <div className="flex items-center justify-between text-xs pt-4 mt-2 border-t border-slate-100">
-          <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">
+          <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium text-xs">
             {category}
           </span>
           <span className="text-slate-500">{difficulty}</span>
@@ -35,9 +44,9 @@ export default function TechCard({ tech, isAdded, onAdd }) {
       <div className="pt-4">
         <button
           onClick={() => onAdd(tech)}
-          className={`w-full py-2.5 rounded-xl font-medium text-xs cursor-pointer ${
+          className={`btn btn-sm w-full rounded-xl text-xs font-medium border-none cursor-pointer ${
             isAdded
-              ? 'bg-slate-100 text-slate-400 border border-slate-200'
+              ? 'bg-slate-100 text-slate-400 hover:bg-slate-200/60'
               : 'bg-slate-900 hover:bg-slate-800 text-white'
           }`}
         >

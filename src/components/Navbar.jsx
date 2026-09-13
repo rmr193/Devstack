@@ -19,9 +19,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-600 md:hidden cursor-pointer"
+            className="btn btn-ghost btn-sm md:hidden cursor-pointer"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
 
           <a href="#">
@@ -41,7 +41,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="text-sm font-medium text-slate-700 px-3 py-2 cursor-pointer">
+            <button className="text-sm font-medium text-slate-700 hover:text-slate-900 px-3 py-2 cursor-pointer">
               Sign In
             </button>
             <button className="text-sm font-semibold text-white px-5 py-2.5 rounded-full bg-brand-gradient shadow cursor-pointer">
