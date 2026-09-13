@@ -13,7 +13,7 @@ export default function YourStack({ selectedStack, onRemove, onRemoveAll }) {
       <p className="text-sm text-slate-500 mt-0.5 mb-5 font-normal">
         {isEmpty
           ? 'No technologies selected yet.'
-          : `${count} Technology${count > 1 ? ' Selected' : ' Selected'}`}
+          : `${count} Technology Selected`}
       </p>
 
       {/* Empty State (matches YourStack-without.png) */}

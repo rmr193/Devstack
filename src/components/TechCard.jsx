@@ -1,4 +1,4 @@
-import { Star, Check } from 'lucide-react'
+import { Star } from 'lucide-react'
 
 // Badge color mapping to match UI aesthetic
 const badgeColorMap = {
@@ -56,17 +56,14 @@ export default function TechCard({ tech, isAdded, onAdd }) {
 
         {/* Metadata: Category Chip, Difficulty, Rating */}
         <div className="flex items-center justify-between gap-1 text-xs pt-4 mt-2 border-t border-slate-100">
-          {/* Category Chip */}
           <span className="bg-slate-100/90 text-slate-700 px-2 py-0.5 rounded-md font-medium text-[11px]">
             {tech.category}
           </span>
 
-          {/* Difficulty */}
           <span className="text-slate-500 font-normal text-[11px]">
             {tech.difficulty}
           </span>
 
-          {/* Rating */}
           <div className="flex items-center gap-1 font-semibold text-slate-700 text-xs">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
             <span>{tech.rating.toFixed(1)}</span>
@@ -75,25 +72,29 @@ export default function TechCard({ tech, isAdded, onAdd }) {
       </div>
 
       {/* Action Button: Add to Stack / Added state */}
-      <div className="pt-4">
-        {isAdded ? (
-          <button
-            type="button"
-            disabled
-            className="w-full py-2.5 px-4 rounded-xl bg-slate-100 text-slate-400 font-medium text-xs flex items-center justify-center gap-1.5 cursor-not-allowed border border-slate-200 transition-colors"
-          >
-            <Check className="w-3.5 h-3.5 text-emerald-500" />
-            <span>Added to Stack</span>
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => onAdd(tech)}
-            className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition-all active:scale-98 cursor-pointer shadow-xs hover:shadow"
-          >
-            Add to Stack
-          </button>
-        )}
+      <div
+        className="pt-4"
+        onClick={() => {
+          if (isAdded) {
+            onAdd(tech)
+          }
+        }}
+      >
+        <button
+          type="button"
+          disabled={isAdded}
+          onClick={(e) => {
+            e.stopPropagation()
+            onAdd(tech)
+          }}
+          className={`w-full py-2.5 px-4 rounded-xl font-medium text-xs flex items-center justify-center gap-1.5 transition-all ${
+            isAdded
+              ? 'bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed'
+              : 'bg-slate-900 hover:bg-slate-800 text-white cursor-pointer active:scale-98 shadow-xs hover:shadow'
+          }`}
+        >
+          {isAdded ? '✓ Added to Stack' : 'Add to Stack'}
+        </button>
       </div>
     </div>
   )
