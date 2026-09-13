@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import LoadingSpinner from './components/LoadingSpinner'
 import TechCard from './components/TechCard'
 import YourStack from './components/YourStack'
+import Footer from './components/Footer'
 
 function App() {
   const [technologies, setTechnologies] = useState([])
@@ -135,6 +136,8 @@ function App() {
           )}
         </section>
       </main>
+
+      <Footer />
     </div>
   )
 }
